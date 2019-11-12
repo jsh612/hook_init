@@ -8,7 +8,7 @@ export const useInput = (initialValue, validator) => {
     } = event;
     let willUpdate = true;
     if (typeof validator === "function") {
-      // validator 는 해당 value가 정해진 조건에 맞는지를 검사한다..
+      // validator 는 해당 value가 정해진 조건에 맞는지를 검사한다.
       willUpdate = validator(value);
       // console.log("유효한가", willUpdate); // true or false
     }
