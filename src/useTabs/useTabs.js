@@ -11,6 +11,7 @@ export const useTabs = (initTab, content) => {
   };
 };
 
+//예시 데이터일분
 export const content = [
   {
     tab: "Secton 1",
