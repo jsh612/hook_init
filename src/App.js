@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useTitle } from "./useTitle/useTitle";
+import React, { useState, useEffect, useRef } from "react";
 
 const App = () => {
-  const titleUpdator = useTitle("Loading....");
-  setTimeout(() => titleUpdator("Home"), 2000);
+  const potato = useRef(); // <input> 에 접근가능.
+  setTimeout(() => console.log(potato.current), 2000); // 출력값: <input placeholder="la">
+  setTimeout(() => potato.current.focus(), 3000);
   return (
     <>
       <div className="App">
         <div>Hi</div>
+        <input ref={potato} placeholder="la" />
       </div>
     </>
   );
