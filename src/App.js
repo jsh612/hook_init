@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNotification } from "./useNotification/useNotification";
+import useAxios from "./useAxios/useAxios";
 
 const App = () => {
-  const triggerNotif = useNotification("어느팀을 좋아합니까?", {
-    body: "I like MU"
+  const { loading, data, error, refetch } = useAxios({
+    url: "https://yts.lt/api/v2/list_movies.json"
   });
+  console.log(`loading: ${loading}\n error: ${error}`);
+  console.log("data", data);
   return (
     <div className="App" style={{ height: "1000vh" }}>
-      <button onClick={triggerNotif}>hello</button>
+      <h1>{data && data.status}</h1>
+      <h2>{loading ? "로딩중" : "로딩완료"}</h2>
+      <button onClick={refetch}>re-fetch</button>
     </div>
   );
 };
