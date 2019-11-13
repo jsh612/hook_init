@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { usePreventLeave } from "./usePreventLeave/usePreventLeave";
+import { useBeforeLeave } from "./useBeforeLeave/useBeforeLeave";
 
 const App = () => {
-  const { enablePrevent, disablePrevent } = usePreventLeave();
+  const begForLife = () => console.log("떠나지마~");
+  useBeforeLeave(begForLife);
   return (
     <>
-      <div className="App">
-        <button onClick={enablePrevent}>protect</button>
-        <button onClick={disablePrevent}>unprotect</button>
-      </div>
+      <h1>hello</h1>
+      <div className="App"></div>
     </>
   );
 };
