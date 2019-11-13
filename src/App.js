@@ -1,17 +1,27 @@
 import React, { useState } from "react";
-import { useInput } from "./useInput/useInput";
+import { useTabs } from "./useTabs/useTabs";
+
+const content = [
+  {
+    tab: "Secton 1",
+    content: "Section1 content"
+  },
+  {
+    tab: "Secton 2",
+    content: "Section2 content"
+  }
+];
 
 const App = () => {
-  const maxLen = value => value.length < 10;
-  const name = useInput("Mr. ", maxLen);
-  console.log({ ...name });
+  const { currentContent, changeContent } = useTabs(0, content);
   return (
     <>
       <div className="App">
-        <h1>hello</h1>
+        {content.map((section, index) => (
+          <button onClick={() => changeContent(index)}>{section.tab}</button>
+        ))}
       </div>
-      {/* <input placeholder="Name" value={name.value} onChange={name.onChange} /> */}
-      <input placeholder="Name" {...name} />
+      <div>{currentContent.content}</div>
     </>
   );
 };
