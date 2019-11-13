@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useConfirm } from "./useConfirm/useConfirm";
+import { usePreventLeave } from "./usePreventLeave/usePreventLeave";
 
 const App = () => {
-  const deleteWorld = () => console.log("delete");
-  const abort = () => console.log("취소");
-  const confirmDelete = useConfirm("Are you sure?", deleteWorld, abort);
+  const { enablePrevent, disablePrevent } = usePreventLeave();
   return (
     <>
       <div className="App">
-        <button onClick={confirmDelete}>Delete the world</button>
+        <button onClick={enablePrevent}>protect</button>
+        <button onClick={disablePrevent}>unprotect</button>
       </div>
     </>
   );
