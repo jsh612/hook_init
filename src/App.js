@@ -1,16 +1,5 @@
 import React, { useState } from "react";
-import { useTabs } from "./useTabs/useTabs";
-
-const content = [
-  {
-    tab: "Secton 1",
-    content: "Section1 content"
-  },
-  {
-    tab: "Secton 2",
-    content: "Section2 content"
-  }
-];
+import { useTabs, content } from "./useTabs/useTabs";
 
 const App = () => {
   const { currentContent, changeContent } = useTabs(0, content);

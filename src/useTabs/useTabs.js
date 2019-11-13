@@ -10,3 +10,14 @@ export const useTabs = (initTab, content) => {
     changeContent: setCurrentIndex
   };
 };
+
+export const content = [
+  {
+    tab: "Secton 1",
+    content: "Section1 content"
+  },
+  {
+    tab: "Secton 2",
+    content: "Section2 content"
+  }
+];
