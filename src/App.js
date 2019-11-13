@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useClick } from "./useClick/useClick";
 
 const App = () => {
-  const potato = useRef(); // <input> 에 접근가능.
-  setTimeout(() => console.log(potato.current), 2000); // 출력값: <input placeholder="la">
-  setTimeout(() => potato.current.focus(), 3000);
+  const sayHello = () => console.log("안녕");
+  const title = useClick(sayHello);
   return (
     <>
       <div className="App">
-        <div>Hi</div>
-        <input ref={potato} placeholder="la" />
+        <h1 ref={title}>Hi</h1>
       </div>
     </>
   );
