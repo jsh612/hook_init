@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useBeforeLeave } from "./useBeforeLeave/useBeforeLeave";
+import { useNetwork } from "./useNetwork/useNetwork";
 
 const App = () => {
-  const begForLife = () => console.log("떠나지마~");
-  useBeforeLeave(begForLife);
+  const handleNetworkChange = online => {
+    console.log(online ? "현재 온라인" : "현재 오프라인");
+  };
+  const onLine = useNetwork(handleNetworkChange);
   return (
     <>
-      <h1>hello</h1>
-      <div className="App"></div>
+      <div className="App">
+        <h1>{onLine ? "Online" : "Offline"}</h1>
+      </div>
     </>
   );
 };
