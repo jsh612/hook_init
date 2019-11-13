@@ -12,6 +12,15 @@ const App = () => {
       <h1>{data && data.status}</h1>
       <h2>{loading ? "로딩중" : "로딩완료"}</h2>
       <button onClick={refetch}>re-fetch</button>
+      <dl>
+        {data &&
+          data.data.data.movies.map(movie => (
+            <div key={movie.id}>
+              <dt>{movie.title}</dt>
+              <dd>{movie.summary}</dd>
+            </div>
+          ))}
+      </dl>
     </div>
   );
 };
